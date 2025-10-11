@@ -12,6 +12,19 @@ class ArrayListEventStore(EventStore):
 
 
     def delete_event(self, event_id):
-        
-
+        for event in self.events:
+            if event.getId() == event_id:
+                self.events.remove(event)
+                return True
+        return False  
+    
+    def search_by_id(self, event_id:int):
+        for event in self.events:
+            if event.getId() == event_id:
+                return event
+        return None
+    
+    def list_all_events(self):
+        return self.events
+    
 
