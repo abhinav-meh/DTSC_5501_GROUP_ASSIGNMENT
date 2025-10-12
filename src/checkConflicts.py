@@ -2,6 +2,9 @@ import time
 import random
 import datetime
 
+from src.event import Event
+from src.ArrayListEventStore import ArrayListEventStore
+
 def checkConflicts(array, return_list):
     # array is array/list to be searched for conflicts
     # return list is 1 to print a list of conflicts, 0 to skip printing (for large data sets)
