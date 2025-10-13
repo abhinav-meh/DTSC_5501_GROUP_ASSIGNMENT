@@ -1,4 +1,5 @@
 from EventStore import EventStore
+import Event
 
 class ArrayListEventStore(EventStore):
 
@@ -27,4 +28,3 @@ class ArrayListEventStore(EventStore):
     def list_all_events(self):
         return self.events
     
-
