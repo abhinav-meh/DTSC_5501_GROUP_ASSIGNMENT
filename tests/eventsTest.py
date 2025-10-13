@@ -1,5 +1,5 @@
 import unittest
-from src.event import Event
+from src.Event import Event
 
 class TestEventFunctions(unittest.TestCase): 
 

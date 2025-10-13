@@ -1,6 +1,6 @@
 import unittest
-from src.event import Event
-from src.ArrayListEventStore import ArrayListEventStore
+from Event import Event
+from ArrayListEventStore import ArrayListEventStore
 
 class TestArraylistEventStore():
 
