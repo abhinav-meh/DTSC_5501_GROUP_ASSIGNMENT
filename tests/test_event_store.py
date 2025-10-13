@@ -1,5 +1,8 @@
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+
 import unittest
-from src.Event import Event
+from Event import Event
 
 class TestEventFunctions(unittest.TestCase): 
 
@@ -26,6 +29,11 @@ class TestEventFunctions(unittest.TestCase):
         event = self.createEvent()
         print(f"Testing getTime: Expected '10:00', Got '{event.getTime()}'")
         self.assertEqual(event.getTime(), "10:00")
+
+    def test_getTimestamp(self):
+        event = self.createEvent()
+        print(f"Testing getTimestamp: Expected 202310011000, Got {event.getTimestamp()}")
+        self.assertEqual(event.getTimestamp(), 202310011000)
 
     def test_getLocation(self):
         event = self.createEvent()
