@@ -1,3 +1,5 @@
+import datetime
+
 class Event():
     def __init__(self, id:int, title:str = None, date:str = "", time:str = "", location:str = ""):
         self.id = id
@@ -5,6 +7,15 @@ class Event():
         self.date = date
         self.time = time
         self.location = location
+        self.timestamp = self.make_timestamp()
+
+    
+    def make_timestamp(self):
+        if not self.date or not self.time:
+            return None
+        d = self.date.replace("-", "")
+        t = self.time.replace(":", "")
+        return int(d+t)
 
     def getId(self):
         return self.id
@@ -20,12 +31,17 @@ class Event():
     
     def getLocation(self):
         return self.location
+    
+    def getTimestamp(self):
+        return self.timestamp
 
     def setDate(self, date:str):
         self.date = date
+        self.timestamp = self.make_timestamp()
 
     def setTime(self, time:str):
         self.time = time
+        self.timestamp = self.make_timestamp()
     
     def setLocation(self, location:str):
         self.location = location

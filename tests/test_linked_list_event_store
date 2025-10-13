@@ -1,6 +1,9 @@
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+
 import unittest
-from . import LinkedListEventStore
-import Event
+from LinkedListEventStore import LinkedListEventStore
+from Event import Event
 
 class LinkedListEventsTest(unittest.TestCase):
 
@@ -46,3 +49,6 @@ class LinkedListEventsTest(unittest.TestCase):
         self.assertIn(self.event1, events)
         self.assertIn(self.event2, events)
         self.assertIn(self.event3, events)
+
+    if __name__ == '__main__':
+     unittest.main()

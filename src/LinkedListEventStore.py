@@ -1,6 +1,6 @@
-import EventStore
-import Event
-import Node
+from EventStore import EventStore
+from Event import Event
+from Node import Node
 
 class LinkedListEventStore(EventStore):
 
