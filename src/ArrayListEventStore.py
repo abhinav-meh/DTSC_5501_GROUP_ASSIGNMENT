@@ -7,6 +7,9 @@ class ArrayListEventStore(EventStore):
         self.events = []
         self.size = size
 
+    def get_size(self):
+        return self.size
+
     def insert_event(self, event):
         if len(self.events) < self.size:
             self.events.append(event)
