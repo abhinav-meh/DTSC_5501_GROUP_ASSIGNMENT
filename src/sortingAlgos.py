@@ -8,9 +8,53 @@ class sortingAlgos():
                 myArray[j+1] = myArray[j]
                 j -= 1
             
-                myArray[j+1] = key
+            myArray[j+1] = key
 
         return myArray
+    
+    def mergeSort(myArray):
+        if len(myArray) > 1:
+            mid = len(myArray)//2
+            L = myArray[:mid]
+            R = myArray[mid:]
+            sortingAlgos().mergeSort(L)
+            sortingAlgos().mergeSort(R)
+            i = j = k = 0
+            while i < len(L) and j < len(R):
+                if L[i] <= R[j]:
+                    myArray[k] = L[i]
+                    i += 1
+                else:
+                    myArray[k] = R[j]
+                    j += 1
+                k += 1
+
+        while i < len(L):
+            myArray[k] = L[i]
+            i += 1
+            k += 1
+
+        while j < len(R):
+            myArray[k] = R[j]
+            j += 1
+            k += 1
+
+    def partition(array, low, high):
+        pivot = array[high]
+        i = low - 1
+        for j in range(low, high):
+            if array[j] <= pivot:
+                i = i + 1
+                (array[i], array[j]) = (array[j], array[i])
+
+        (array[i + 1], array[high]) = (array[high], array[i + 1])
+        return i + 1
+
+    def quickSort(array, low, high):
+        if low < high:
+            pi = partition(array, low, high)
+            quickSort(array, low, pi - 1)
+            quickSort(array, pi + 1, high)
 
 
 # Python program for Quick Sort on Singly Linked List
