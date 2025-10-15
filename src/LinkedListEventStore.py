@@ -47,11 +47,30 @@ class LinkedListEventStore(EventStore):
         return None
     
 
-    def list_events(self):
+    def list_all_events(self):
         events = []
         current = self.head
         while current:
             events.append(current.event)
             current = current.next
         return events
+    
+
+    def bubble_sort_events(self):
+        if self.head is None or self.head.next is None:
+            return
+        
+        swapped = True
+        while swapped:
+            swapped = False
+            current = self.head
+            while current and current.next:
+                if current.event.getTimestamp() > current.next.event.getTimestamp():
+                    current.event, current.next.event = current.next.event, current.event
+                    swapped = True
+                current = current.next
+
+
+
+        
 
