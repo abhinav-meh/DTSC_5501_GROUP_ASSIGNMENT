@@ -1,3 +1,6 @@
+from ArrayListEventStore import ArrayListEventStore
+from Event import Event
+
 def test_event_fixed_array(x):
     import random
     EventList = ArrayListEventStore(x)
