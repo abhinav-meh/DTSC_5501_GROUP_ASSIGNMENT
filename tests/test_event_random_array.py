@@ -1,3 +1,6 @@
+from ArrayListEventStore import ArrayListEventStore
+from Event_Random import Event_Random
+
 def test_event_random_array(x):
     EventList = ArrayListEventStore(x)
     for i in range(x):           
