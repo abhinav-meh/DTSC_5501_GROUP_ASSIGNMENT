@@ -2,10 +2,10 @@ from test_event_fixed_linked import test_event_fixed_linked
 from test_event_random_linked import test_event_random_linked
 from checkConflictsLinked import checkConflictsLinked
 
-# generate list of known events
+# generate linked list of known values
 test_known_10 = test_event_fixed_linked(10)
 
-# execute conflict checks for known events and report results
+# execute linked list conflict checks for known event linked list and report results
 print("Linked List Conflict Check Results: Event Set with Known Conflicts")
 conflict_total0, con_instances0, conflict_chk_time0, conflict_id_list0 = checkConflictsLinked(test_known_10, 1)
 print(f"\nTotal conflicts identified: {conflict_total0}")
@@ -16,10 +16,10 @@ print(f"Event IDs of events with conflicts: {conflict_id_list0}\n")
 for i in range(len(conflict_id_list0)):
     print(test_known_10.search_by_id(conflict_id_list0[i]))
 
-# generate list of random events
+# generate linked list of random values
 test_random_10 = test_event_random_linked(10)
 
-# execute conflict checks for set of random events and report results
+# execute linked list conflict checks for random event linked list and report results
 print("Linked List Conflict Check Results: Random Event Set with 10 Events")
 conflict_total1, con_instances1, conflict_chk_time1, conflict_id_list1 = checkConflictsLinked(test_random_10, 1)
 print(f"\nTotal conflicts identified: {conflict_total1}")
@@ -30,8 +30,8 @@ print(f"Event IDs of events with conflicts: {conflict_id_list1}")
 for i in range(len(conflict_id_list1)):
     print(test_random_10.search_by_id(conflict_id_list1[i]))
 
-# generate larger list of random events
-# execute conflict checks and report results
+# generate larger random event linked list
+# execute linked list conflict checks for randome event linked list and report results
 print("Linked List Conflict Check Results: Random Event Set with 500 Events")
 test_random_500 = test_event_random_linked(500)
 conflict_total2, con_instances2, conflict_chk_time2, conflict_id_list2 = checkConflictsLinked(test_random_500, 1)
@@ -43,6 +43,8 @@ print(f"Event IDs of events with conflicts: {conflict_id_list2}\n")
 for i in range(len(conflict_id_list2)):
     print(test_random_500.search_by_id(conflict_id_list2[i]))
 
+# execute conflict checks for a series of event set sizes and report results
+# plot comparison of event set size and time to execute conflict checks
 
 # Generate test arrays of variable sizes
 test_inc = (50,500,1000,5000,10000,25000,50000)
