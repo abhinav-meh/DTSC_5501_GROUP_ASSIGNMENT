@@ -1,3 +1,5 @@
+from gen_event_details import gen_event_details
+
 class Event_Random():
     def __init__(self, id:int):#, title:str = None, date:str = "", time:str = "", location:str = ""):
         
