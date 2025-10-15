@@ -9,15 +9,15 @@ class LinkedListEventsTest(unittest.TestCase):
 
     def setUp(self):
         self.store = LinkedListEventStore()
-        self.event1 = Event(1, "Event 1", "2023-10-01", "Location 1")
-        self.event2 = Event(2, "Event 2", "2023-11-01", "Location 2")
-        self.event3 = Event(3, "Event 3", "2023-12-01", "Location 3")
+        self.event1 = Event(1, "Event 1", "2023-10-01", "10:00", "Location 1")
+        self.event2 = Event(2, "Event 2", "2023-11-01", "10:00", "Location 2")
+        self.event3 = Event(3, "Event 3", "2023-12-01", "10:00", "Location 3")
 
     def test_insert_event(self):
         self.store.insert_event(self.event1)
         self.store.insert_event(self.event2)
         self.assertEqual(self.store.size, 2)
-        events = self.store.list_events()
+        events = self.store.list_all_events()
         self.assertIn(self.event1, events)
         self.assertIn(self.event2, events)
 
@@ -27,7 +27,7 @@ class LinkedListEventsTest(unittest.TestCase):
         deleted = self.store.delete_event(1)
         self.assertTrue(deleted)
         self.assertEqual(self.store.size, 1)
-        events = self.store.list_events()
+        events = self.store.list_all_events()
         self.assertNotIn(self.event1, events)
         self.assertIn(self.event2, events)
 
@@ -36,15 +36,15 @@ class LinkedListEventsTest(unittest.TestCase):
         self.store.insert_event(self.event2)
         found_event = self.store.search_by_id(2)
         self.assertIsNotNone(found_event)
-        self.assertEqual(found_event.name, "Event 2")
+        self.assertEqual(found_event.title, "Event 2")
         not_found_event = self.store.search_by_id(3)
         self.assertIsNone(not_found_event)
 
-    def test_list_events(self):
+    def test_list_all_events(self):
         self.store.insert_event(self.event1)
         self.store.insert_event(self.event2)
         self.store.insert_event(self.event3)
-        events = self.store.list_events()
+        events = self.store.list_all_events()
         self.assertEqual(len(events), 3)
         self.assertIn(self.event1, events)
         self.assertIn(self.event2, events)
