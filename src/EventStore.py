@@ -18,4 +18,27 @@ class EventStore(ABC):
     def list_all_events(self):
         pass
 
+    @abstractmethod
+    def insertion_sort(self):
+        pass
 
+    @abstractmethod
+    def insertion_sort_by_id(self):
+        pass
+    
+    @abstractmethod
+    def merge_sort(self):
+        pass
+    
+    @abstractmethod
+    def quick_sort(self):
+        pass
+    
+    @abstractmethod
+    def linear_search(self):
+        pass
+
+
+    @abstractmethod
+    def binary_search(self):
+        pass
