@@ -95,7 +95,7 @@ class ArrayListEventStore(EventStore):
             pivot = events[high]
             i = low - 1
             for j in range(low, high):
-                if events[j].getId() <= pivot.getId():
+                if events[j].getTimestamp() <= pivot.getTimestamp():
                     i += 1
                     events[i], events[j] = events[j], events[i]
             events[i + 1], events[high] = events[high], events[i + 1]
