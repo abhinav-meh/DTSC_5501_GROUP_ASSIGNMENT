@@ -1,5 +1,5 @@
 class sortingAlgos():
-    def InsertionSort(myArray):
+    def insertionSortArray(myArray):
         for i in range(1, len(myArray)):
             key = myArray[i]
             j = i - 1
@@ -11,6 +11,42 @@ class sortingAlgos():
             myArray[j+1] = key
 
         return myArray
+    
+    def insertionSortLL():
+        #set the varible current to the first node  
+        current = head
+        
+        #begin iterating through the linked list
+        while current:
+            # create your temp variables
+            key = current.next
+            prev = current
+
+            #if there isnt a next node break from the loop
+            if key == None:
+                break
+            
+            # if while iterating we notice that the next one is less then the first one we have some sorting to do.
+            while prev and key.data < prev.data:
+                # create a temp variable to start from the first node
+                sortCurrent = head
+
+                #swap the current to the head of the list
+                sortCurrent.data, prev.data = prev.data, sortCurrent.data
+                
+                #iterate through
+                while sortCurrent:
+                    # if there isnt a next break out of this loop
+                    if sortCurrent.next == None:
+                        break
+                    
+                    # where we see the current bigger then its neighbor switch them
+                    if sortCurrent.data > sortCurrent.next.data:
+                        sortCurrent.data, sortCurrent.next.data = sortCurrent.next.data, sortCurrent.data
+                    sortCurrent = sortCurrent.next
+
+                key.data, prev.data = prev.data, key.data
+            current = current.next
     
     def mergeSort(myArray):
         if len(myArray) > 1:
@@ -131,15 +167,3 @@ def quickSort(head):
     # Call the helper function to sort the list
     quickSortHelper(head, tail)
     return head
-
-if __name__ == "__main__":
-  
-    # Creating a linked list: 30 -> 3 -> 4 -> 20 -> 5
-    head = Node(30)
-    head.next = Node(3)
-    head.next.next = Node(4)
-    head.next.next.next = Node(20)
-    head.next.next.next.next = Node(5)
-
-    head = quickSort(head)
-    printList(head)
