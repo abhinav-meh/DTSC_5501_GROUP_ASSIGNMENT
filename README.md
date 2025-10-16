@@ -8,7 +8,7 @@
 
 ___
 
-### This repo is a submission for DTSC 5501 Group Assignment 1. To run tests, either:
+### This repo is a submission for DTSC 5501 Group Assignment 1. To run tests(./tests/), either:
 
 * Run command: python -m unittest tests/filename.py -v
 
